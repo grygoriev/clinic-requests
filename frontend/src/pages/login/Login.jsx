@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Typography, message } from "antd";
 import axios from "axios";
+import { API_URL } from '../../constants/api-url.js';
 
 export const Login = ({ setUser }) => {
 	const { Title } = Typography;
@@ -19,7 +20,7 @@ export const Login = ({ setUser }) => {
 	const onSubmit = async (data) => {
 		try {
 			setLoading(true);
-			const response = await axios.post("http://localhost:3001/api/login", data, { withCredentials: true });
+			const response = await axios.post(`${API_URL}/api/login`, data, { withCredentials: true });
 
 			if (response.data.error) {
 				message.error(response.data.error);

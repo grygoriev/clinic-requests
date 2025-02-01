@@ -12,11 +12,12 @@ const app = express();
 
 app.use(express.static(path.resolve('..', 'frontend', 'build')));
 
-const allowedOrigins = ["http://localhost:5173", "http://159.69.186.247"];
+const allowedOrigins = ["http://localhost:5173", "http://159.69.186.247", 'https://159.69.186.247'];
 app.use(
 	cors({
 		origin: allowedOrigins,
 		credentials: true,
+		optionsSuccessStatus: 200,
 	})
 );
 

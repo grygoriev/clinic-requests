@@ -3,6 +3,8 @@ import { Layout, Menu, Button, message } from 'antd';
 import { useEffect, useState } from 'react';
 import { Login, Main, Orders } from './pages/index.js';
 import axios from 'axios';
+import {API_URL} from './constants/api-url.js';
+
 const { Header, Content } = Layout;
 
 export const App = () => {
@@ -17,11 +19,7 @@ export const App = () => {
 
 	const handleLogout = async () => {
 		try {
-			await axios.post(
-				'http://localhost:3001/api/logout',
-				{},
-				{ withCredentials: true },
-			);
+			await axios.post(`${API_URL}/api/logout`, {}, { withCredentials: true });
 			sessionStorage.removeItem('userData');
 			setUser(null);
 			message.success('Вы успешно вышли');

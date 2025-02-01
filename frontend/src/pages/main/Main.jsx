@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Form, Input, Button, message, Typography } from "antd";
 import InputMask from "react-input-mask";
 import axios from "axios";
+import { API_URL } from '../../constants/api-url.js';
 
 export const Main = () => {
 	const { Title } = Typography;
@@ -21,7 +22,7 @@ export const Main = () => {
 			console.log("Отправляемые данные:", data);
 			const cleanedPhone = data.phone.replace(/\D/g, '');
 
-			await axios.post('http://localhost:3001/api/orders', {
+			await axios.post(`${API_URL}/api/orders`, {
 				patientName: data.patientName,
 				phone: `+${cleanedPhone}`,
 				problem: data.problem || '',

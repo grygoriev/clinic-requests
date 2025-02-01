@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Table, Input, Button, Typography, Space, message } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import axios from "axios";
+import { API_URL } from '../../constants/api-url.js';
 
 export const Orders = () => {
 	const { Title } = Typography;
@@ -26,7 +27,7 @@ export const Orders = () => {
 	const fetchOrders = async (page = 1, searchQuery = "", sortField, sortOrder) => {
 		try {
 			setLoading(true);
-			const response = await axios.get("http://localhost:3001/api/orders", {
+			const response = await axios.get(`${API_URL}/api/orders`, {
 				withCredentials: true,
 				headers: { "Content-Type": "application/json" },
 				params: {
