@@ -1,0 +1,21 @@
+### GET all questions with answers
+GET http://localhost:3001/api/orders?search={{query}}&limit={{limit}}&page={{page}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}
+
+### Variables
+@query =
+@limit = 5
+@page = 1
+@sortBy = patient_name
+@sortOrder = desc
+###
+
+###
+POST http://localhost:3001/api/orders
+Content-Type: application/json
+
+{
+  "patientName": "Sidorov Vlad",
+  "phone": "+380771234561",
+  "problem": "Influence"
+}
+###

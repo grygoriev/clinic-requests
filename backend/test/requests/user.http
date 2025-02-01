@@ -1,0 +1,20 @@
+### POST request register
+POST http://localhost:3001/api/register
+Content-Type: application/json
+
+{
+  "email": "ivan@gmail.com",
+  "password": "test123"
+}
+
+### POST request login
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "email": "ivan@gmail.com",
+  "password": "test123"
+}
+
+### POST request logout
+POST http://localhost:3001/api/logout
